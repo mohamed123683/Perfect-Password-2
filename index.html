@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Language Buttons -->
+  <div class="lang-btns">
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('ar')">العربية</button>
+  </div>
+
+  <div class="container">
+    <button class="login-btn" onclick="window.location.href='login.html'">تسجيل دخول</button>
+    <h1>Password Generator</h1>
+
+    <!-- Options to choose password generation settings -->
+    <div class="settings">
+      <label><input type="checkbox" id="includeNumbers" checked> Include Numbers</label>
+      <label><input type="checkbox" id="includeLowercase" checked> Include Lowercase Letters</label>
+      <label><input type="checkbox" id="includeUppercase" checked> Include Uppercase Letters</label>
+      <label><input type="checkbox" id="includeSymbols" checked> Include Symbols</label>
+      <div>
+        <label>Length: <input type="number" id="passwordLength" value="12" min="4" max="20"></label>
+      </div>
+    </div>
+
+    <div class="password-box">
+      <input type="text" id="password" readonly>
+      <div>
+        <button onclick="copyPassword()">نسخ</button>
+        <button onclick="savePassword()">حفظ</button>
+      </div>
+    </div>
+
+    <button onclick="generatePassword()">إنشاء كلمة مرور</button>
+
+    <div class="saved-passwords">
+      <button onclick="showSavedPasswords()">المحفوظات</button>
+    </div>
+  </div>
+
+  <!-- Save password modal -->
+  <div id="saveModal" style="display:none;">
+    <div class="container">
+      <h2>حفظ كلمة المرور</h2>
+      <input type="text" id="saveName" placeholder="أدخل اسم الحفظ">
+      <input type="text" id="savePassword" readonly>
+      <button onclick="saveToLocal()">حفظ</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
